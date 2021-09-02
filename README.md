@@ -13,7 +13,7 @@ There are multiple steps involved in setting up a fully fledged demo cluster. In
 
 The following steps need to be stepped through in order to set up the Demo Cluster fully:
 
-1. Create Atlas Cluster
+1. [Create Atlas Cluster](#-create-atlas-cluster)
 2. Generate Workload on Cluster
 3. Performance Advisor Demo Setup 
 4. Atlas Search Demo Setup
