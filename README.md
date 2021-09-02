@@ -65,12 +65,10 @@ Atlas will recommend with the above setup improvements for the [Create Indexes](
 **WARNING**: Until the recommendations appear, some time will pass. Typically **Improve Schemas** will be showing recommendations after about two hours, **Create Indexes** after about 1-2 days and **Drop Indexes** after 1-2 weeks. 
 
 ## ![4](https://github.com/PhilippW94/Kafka_POV/blob/main/images/4b.png) Atlas Search Demo Setup
-
-GraphQL Demo: SA Demotoolkit https://github.com/10gen/pov-proof-exercises/tree/master/proofs/47
-Full Text Search Demo: Keynote 2019 https://docs.google.com/presentation/d/14kSQnz98EOCORveEE1PYfxa5JMV32Z9LRxOSP9fFppA/edit#slide=id.p1
-Charts Demo: Order Data, Movies Data https://docs.mongodb.com/charts/saas/tutorial/order-data/order-data-tutorial-overview/ https://docs.mongodb.com/charts/saas/tutorial/movie-details/movie-details-tutorial-overview/
+For the setup of the Atlas Search Demo, follow the steps described [Keynote from 2019](https://docs.google.com/presentation/d/14kSQnz98EOCORveEE1PYfxa5JMV32Z9LRxOSP9fFppA/edit#slide=id.p1).
 
 ## ![5](https://github.com/PhilippW94/Kafka_POV/blob/main/images/5b.png) Charts Demo Setup
-
+For the setup of the Charts Demo, follow the steps described in the Charts Docs. There are two dashboards to be created, [Order Data](https://docs.mongodb.com/charts/saas/tutorial/order-data/order-data-tutorial-overview/) and [Movie Data](https://docs.mongodb.com/charts/saas/tutorial/movie-details/movie-details-tutorial-overview/)
 
 ## ![6](https://github.com/PhilippW94/Kafka_POV/blob/main/images/6b.png) GraphQL Demo Setup
+For the setup of the Atlas Search Demo, follow the steps described in the POVs as part of [SA Demotoolkit](https://github.com/10gen/pov-proof-exercises/tree/master/proofs/47).
