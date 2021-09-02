@@ -15,10 +15,10 @@ The following steps need to be stepped through in order to set up the Demo Clust
 
 1. [Create Atlas Cluster](#-create-atlas-cluster)
 2. [Generate Workload on Cluster](#-generate-workload-on-cluster)
-3. Performance Advisor Demo Setup 
-4. Atlas Search Demo Setup
-5. Charts Demo Setup
-6. GraphQL Demo Setup
+3. [Performance Advisor Demo Setup](#-performance-advisor-demo-setup)
+4. [Atlas Search Demo Setup](#-atlas-search-demo-setup)
+5. [Charts Demo Setup](#-charts-demo-setup)
+6. [GraphQL Demo Setup](#-graphql-demo-setup)
 
 
 The [Atlas Demo Discovery Playbook Cheatsheet](https://docs.google.com/document/d/1RZVWKsR6CjSKoByxyPiUxgaQ-opjNCSrYiRDCUwC23U/edit#heading=h.744mm6ty7947) provides a "manual" for a walk through the different Atlas Features and some relevant questions to ask. 
@@ -59,3 +59,13 @@ We will generate a workload on the cluster which makes use of the sample data se
 * Click **Save** and subsequently **Review & Deploy Changes**
 * Check if everything is working by checking the Realm Logs. After a while, the Logs [should look like this](https://github.com/PhilippW94/mongodb-atlas-demo-cluster-setup/blob/main/media/Screenshot%202021-09-02%20at%2021.21.57.png?raw=true).
 
+## ![3](https://github.com/PhilippW94/Kafka_POV/blob/main/images/3b.png) Performance Advisor Demo Setup
+
+
+## ![4](https://github.com/PhilippW94/Kafka_POV/blob/main/images/4b.png) Atlas Search Demo Setup
+
+
+## ![5](https://github.com/PhilippW94/Kafka_POV/blob/main/images/5b.png) Charts Demo Setup
+
+
+## ![6](https://github.com/PhilippW94/Kafka_POV/blob/main/images/6b.png) GraphQL Demo Setup
