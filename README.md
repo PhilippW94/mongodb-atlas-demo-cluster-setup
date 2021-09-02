@@ -47,7 +47,7 @@ We will generate a workload on the cluster which makes use of the sample data se
   * In **1 Name** give your application a name, e.g. "WorkloadGenerator"
   * In **2 Link your Database** select the previously created database cluster.
   * In **Advanced Configuration**, select Local and choose the AWS region you deployed your cluster in. _(If this region is not available in the dropdown, choose the geographically closest one)_ 
-* Once the app is created, navigate to Triggers. Click on **Add a Trigger** and fill out the fields as shown below. <img src="https://github.com/PhilippW94/mongodb-atlas-demo-cluster-setup/blob/d300b45fb0f4f93e071b13952af4942cf1de52c6/media/Screenshot%202021-09-02%20at%2021.12.37.png?raw=true" width="800">
+* Once the app is created, navigate to Triggers. Click on **Add a Trigger** and fill out the fields as shown below. <img src="https://github.com/PhilippW94/mongodb-atlas-demo-cluster-setup/blob/d300b45fb0f4f93e071b13952af4942cf1de52c6/media/Screenshot%202021-09-02%20at%2021.12.37.png?raw=true" width="600">
   * Select **Trigger Type** as _Scheduled_
   * Choose a **Name**, e.g. _workloadGenerator_
   * Ensure **Enabled** is set to _On_
@@ -58,6 +58,11 @@ We will generate a workload on the cluster which makes use of the sample data se
   * In the Function code, paste the contents of the [RealmFunction.js file](https://github.com/PhilippW94/mongodb-atlas-demo-cluster-setup/blob/d300b45fb0f4f93e071b13952af4942cf1de52c6/RealmFunction.js)
 * Click **Save** and subsequently **Review & Deploy Changes**
 * Check if everything is working by checking the Realm Logs. After a while, the Logs [should look like this](https://github.com/PhilippW94/mongodb-atlas-demo-cluster-setup/blob/main/media/Screenshot%202021-09-02%20at%2021.21.57.png?raw=true).
+
+The final result after a while should look as follows:
+* [Cluster Overview](https://github.com/PhilippW94/mongodb-atlas-demo-cluster-setup/blob/main/media/Screenshot%202021-09-02%20at%2021.42.27.png)
+* [Monitoring](https://github.com/PhilippW94/mongodb-atlas-demo-cluster-setup/blob/main/media/Screenshot%202021-09-02%20at%2021.43.07.png)
+* [Profiler](https://github.com/PhilippW94/mongodb-atlas-demo-cluster-setup/blob/main/media/Screenshot%202021-09-02%20at%2021.44.34.png)
 
 ## ![3](https://github.com/PhilippW94/Kafka_POV/blob/main/images/3b.png) Performance Advisor Demo Setup
 Atlas will recommend with the above setup improvements for the [Create Indexes](https://github.com/PhilippW94/mongodb-atlas-demo-cluster-setup/blob/main/media/Screenshot%202021-09-02%20at%2021.33.22.png?raw=true), [Drop Indexes](https://github.com/PhilippW94/mongodb-atlas-demo-cluster-setup/blob/main/media/Screenshot%202021-09-02%20at%2021.33.27.png) and [Improve Schemas](https://github.com/PhilippW94/mongodb-atlas-demo-cluster-setup/blob/main/media/Screenshot%202021-09-02%20at%2021.34.06.png?raw=true) category by itself.
