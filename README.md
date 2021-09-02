@@ -49,3 +49,5 @@ We will generate a workload on the cluster which makes use of the sample data se
   * In **Advanced Configuration**, select Local and choose the AWS region you deployed your cluster in. _(If this region is not available in the dropdown, choose the geographically closest one)_ 
 * Once the app is created, navigate to Triggers.
  * Click on **Add a Trigger** 
+<img src="https://github.com/PhilippW94/mongodb-atlas-demo-cluster-setup/blob/d300b45fb0f4f93e071b13952af4942cf1de52c6/media/Screenshot%202021-09-02%20at%2021.12.37.png?raw=true" width="800">
+
