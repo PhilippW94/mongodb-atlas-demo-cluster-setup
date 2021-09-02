@@ -57,5 +57,5 @@ We will generate a workload on the cluster which makes use of the sample data se
   * Choose a **Function Name**, e.g. _workloadGeneratorFunc_
   * In the Function code, past the contents of the [RealmFunction.js file](https://github.com/PhilippW94/mongodb-atlas-demo-cluster-setup/blob/d300b45fb0f4f93e071b13952af4942cf1de52c6/RealmFunction.js)
 * Click **Save** and subsequently **Review & Deploy Changes**
-* Check if 
+* Check if everything is working by checking the Realm Logs. After a while, the Logs [should look like this](https://github.com/PhilippW94/mongodb-atlas-demo-cluster-setup/blob/main/media/Screenshot%202021-09-02%20at%2021.21.57.png?raw=true).
 
