@@ -60,10 +60,15 @@ We will generate a workload on the cluster which makes use of the sample data se
 * Check if everything is working by checking the Realm Logs. After a while, the Logs [should look like this](https://github.com/PhilippW94/mongodb-atlas-demo-cluster-setup/blob/main/media/Screenshot%202021-09-02%20at%2021.21.57.png?raw=true).
 
 ## ![3](https://github.com/PhilippW94/Kafka_POV/blob/main/images/3b.png) Performance Advisor Demo Setup
+Atlas will recommend with the above setup improvements for the [Create Indexes](https://github.com/PhilippW94/mongodb-atlas-demo-cluster-setup/blob/main/media/Screenshot%202021-09-02%20at%2021.33.22.png?raw=true), [Drop Indexes](https://github.com/PhilippW94/mongodb-atlas-demo-cluster-setup/blob/main/media/Screenshot%202021-09-02%20at%2021.33.27.png) and [Improve Schemas](https://github.com/PhilippW94/mongodb-atlas-demo-cluster-setup/blob/main/media/Screenshot%202021-09-02%20at%2021.34.06.png?raw=true) category by itself.
 
+**WARNING**: Until the recommendations appear, some time will pass. Typically **Improve Schemas** will be showing recommendations after about two hours, **Create Indexes** after about 1-2 days and **Drop Indexes** after 1-2 weeks. 
 
 ## ![4](https://github.com/PhilippW94/Kafka_POV/blob/main/images/4b.png) Atlas Search Demo Setup
 
+GraphQL Demo: SA Demotoolkit https://github.com/10gen/pov-proof-exercises/tree/master/proofs/47
+Full Text Search Demo: Keynote 2019 https://docs.google.com/presentation/d/14kSQnz98EOCORveEE1PYfxa5JMV32Z9LRxOSP9fFppA/edit#slide=id.p1
+Charts Demo: Order Data, Movies Data https://docs.mongodb.com/charts/saas/tutorial/order-data/order-data-tutorial-overview/ https://docs.mongodb.com/charts/saas/tutorial/movie-details/movie-details-tutorial-overview/
 
 ## ![5](https://github.com/PhilippW94/Kafka_POV/blob/main/images/5b.png) Charts Demo Setup
 
