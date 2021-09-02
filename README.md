@@ -48,13 +48,14 @@ We will generate a workload on the cluster which makes use of the sample data se
   * In **2 Link your Database** select the previously created database cluster.
   * In **Advanced Configuration**, select Local and choose the AWS region you deployed your cluster in. _(If this region is not available in the dropdown, choose the geographically closest one)_ 
 * Once the app is created, navigate to Triggers. Click on **Add a Trigger** and fill out the fields as shown below. <img src="https://github.com/PhilippW94/mongodb-atlas-demo-cluster-setup/blob/d300b45fb0f4f93e071b13952af4942cf1de52c6/media/Screenshot%202021-09-02%20at%2021.12.37.png?raw=true" width="800">
- * Select **Trigger Type** as _Scheduled_
- * Choose a **Name**, e.g. _workloadGenerator_
- * Ensure **Enabled** is set to _On_
- * **Scheduled Type** is set to _Basic_
- * Under Function, **Select An Event Type** is set to _Function_
- * Select _+ New Function_
- * Choose a **Function Name**, e.g. _workloadGeneratorFunc_
- * In the Function code, past the contents of the [RealmFunction.js file](https://github.com/PhilippW94/mongodb-atlas-demo-cluster-setup/blob/d300b45fb0f4f93e071b13952af4942cf1de52c6/RealmFunction.js)
-* 
+  * Select **Trigger Type** as _Scheduled_
+  * Choose a **Name**, e.g. _workloadGenerator_
+  * Ensure **Enabled** is set to _On_
+  * **Scheduled Type** is set to _Basic_. **Repeat once by** set to _every minute_
+  * Under Function, **Select An Event Type** is set to _Function_
+  * Select _+ New Function_
+  * Choose a **Function Name**, e.g. _workloadGeneratorFunc_
+  * In the Function code, past the contents of the [RealmFunction.js file](https://github.com/PhilippW94/mongodb-atlas-demo-cluster-setup/blob/d300b45fb0f4f93e071b13952af4942cf1de52c6/RealmFunction.js)
+* Click **Save** and subsequently **Review & Deploy Changes**
+* Check if 
 
