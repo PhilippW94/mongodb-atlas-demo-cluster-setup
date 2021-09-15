@@ -19,7 +19,8 @@ The following steps need to be stepped through in order to set up the Demo Clust
 4. [Atlas Search Demo Setup](#-atlas-search-demo-setup)
 5. [Charts Demo Setup](#-charts-demo-setup)
 6. [GraphQL Demo Setup](#-graphql-demo-setup)
-7. [Final Step - Permissions Setup](#-permissions-setup)
+7. [Reaper Setup](#-reaper-setup)
+8. [Final Step - Permissions Setup](#-permissions-setup)
 
 
 The [Atlas Demo Discovery Playbook Cheatsheet](https://docs.google.com/document/d/1RZVWKsR6CjSKoByxyPiUxgaQ-opjNCSrYiRDCUwC23U/edit#heading=h.744mm6ty7947) provides a "manual" for a walk through the different Atlas Features and some relevant questions to ask. 
@@ -81,15 +82,50 @@ For the setup of the Charts Demo, follow the steps described in the Charts Docs.
 ## ![6](https://github.com/PhilippW94/Kafka_POV/blob/main/images/6b.png) GraphQL Demo Setup
 For the setup of the GraphQL Demo, follow the steps described in the POVs as part of [SA Demotoolkit](https://github.com/10gen/pov-proof-exercises/tree/master/proofs/47).
 
-## ![7](https://github.com/PhilippW94/Kafka_POV/blob/main/images/7b.png) Permissions Setup
-In order to avoid accidents and mishaps that might result in your hard work being deleted, you should set up adequate permissions for the users of your demo cluster. 
+## ![7](https://github.com/PhilippW94/Kafka_POV/blob/main/images/7b.png) Reaper Setup
+With the permissions defined in the last and final step everybody can create Atlas Clusters, but only the admins can delete them. Thus it is quintessential to have a reaper process in place to clean up the results of glorious _Cluster Creation Flow Demos_.
 
-Make use of the _Team_ feature on the project access level. A dedicated _Admin Team_ with the _Project Owner_ role and an _Everyone_-Team with the _Project Data Access Admin_ and _Project Cluster Manager_ role will support the desired usage pattern. Members of the _Everyone_-Team will be able to create a new cluster and edit configurations of existing ones. At the same time, they will not be able to terminate an existing instance - which could possibly be the thoroughly set up instance by you. Make sure that no unaccounted for users with elevated rights at the organisation level exist, as this could lead to problems. The following shows an example of how the _Team_ configuration could look like:
-
-<img src="https://github.com/PhilippW94/mongodb-atlas-demo-cluster-setup/blob/main/media/Screenshot%202021-09-15%20at%2013.42.42.png?raw=true" width="600"> 
+For this the below Realm Function script is used. Follow the following steps to set it up:
+* Create a Realm Function called **reaperFunc**
+* The following variables need to be set by you manually:
+  * **username**: Create an API Key with associated project role **Project Owner**. Copy the Public Key and insert it for the _username_ variable.
+  * **password**: Copy the Private Key. Create a Realm Value and store the Private Key. For the _password_ variable, add the Value you previously created. 
+  * **projectID**: In MongoDB Atlas, go to your project settings and copy the Project ID.
 
 ```js
-var result = "";
+exports = async function() {
+  // Get stored credentials...
+  const username = "zxibcoef";
+  const password = context.values.get("AtlasPrivateKey");
+  
+  // Supply projectID and clusterNames...
+  const projectID = 'xxxxxxxxxxxxxxxxxxxxx';
+  var clusterNames = [];
+  
+  // Name of your Demo Cluster that should not be deleted
+  var doNotDelete = "DemoCluster2-DoNotDelete";
+
+  const argGetClusters = { 
+    scheme: 'https', 
+    host: 'cloud.mongodb.com', 
+    path: 'api/atlas/v1.0/groups/' + projectID + '/clusters/', 
+    username: username, 
+    password: password,
+    headers: {'Content-Type': ['application/json'], 'Accept-Encoding': ['bzip, deflate']}, 
+    digestAuth:true
+  };
+  
+  // The response body is a BSON.Binary object. Parse it and return.
+  response = await context.http.get(argGetClusters);
+  const returnBody = EJSON.parse(response.body.text());
+  //console.log(JSON.stringify(returnBody));
+  returnBody.results.forEach(function (cluster) {
+    if(cluster.name != doNotDelete){
+      clusterNames.push(cluster.name);
+    }
+  });
+  
+  var result = "";
   
   clusterNames.forEach(async function (name) {
     const argDeleteOperation = { 
@@ -114,4 +150,13 @@ var result = "";
   })
 
   return clusterNames.length + " clusters deleted"; 
+
+  };
 ```
+
+## ![8](https://github.com/PhilippW94/Kafka_POV/blob/main/images/8b.png) Permissions Setup
+In order to avoid accidents and mishaps that might result in your hard work being deleted, you should set up adequate permissions for the users of your demo cluster. 
+
+Make use of the _Team_ feature on the project access level. A dedicated _Admin Team_ with the _Project Owner_ role and an _Everyone_-Team with the _Project Data Access Admin_ and _Project Cluster Manager_ role will support the desired usage pattern. Members of the _Everyone_-Team will be able to create a new cluster and edit configurations of existing ones. At the same time, they will not be able to terminate an existing instance - which could possibly be the thoroughly set up instance by you. Make sure that no unaccounted for users with elevated rights at the organisation level exist, as this could lead to problems. The following shows an example of how the _Team_ configuration could look like:
+
+<img src="https://github.com/PhilippW94/mongodb-atlas-demo-cluster-setup/blob/main/media/Screenshot%202021-09-15%20at%2013.42.42.png?raw=true" width="600"> 
