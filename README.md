@@ -87,3 +87,31 @@ In order to avoid accidents and mishaps that might result in your hard work bein
 Make use of the _Team_ feature on the project access level. A dedicated _Admin Team_ with the _Project Owner_ role and an _Everyone_-Team with the _Project Data Access Admin_ and _Project Cluster Manager_ role will support the desired usage pattern. Members of the _Everyone_-Team will be able to create a new cluster and edit configurations of existing ones. At the same time, they will not be able to terminate an existing instance - which could possibly be the thoroughly set up instance by you. Make sure that no unaccounted for users with elevated rights at the organisation level exist, as this could lead to problems. The following shows an example of how the _Team_ configuration could look like:
 
 <img src="https://github.com/PhilippW94/mongodb-atlas-demo-cluster-setup/blob/main/media/Screenshot%202021-09-15%20at%2013.42.42.png?raw=true" width="600"> 
+
+```js
+var result = "";
+  
+  clusterNames.forEach(async function (name) {
+    const argDeleteOperation = { 
+      scheme: 'https', 
+      host: 'cloud.mongodb.com', 
+      path: 'api/atlas/v1.0/groups/' + projectID + '/clusters/' + name, 
+      username: username, 
+      password: password,
+      headers: {'Content-Type': ['application/json'], 'Accept-Encoding': ['bzip, deflate']}, 
+      digestAuth:true
+    };
+    
+    // The response body is a BSON.Binary object. Parse it and return.
+    response = await context.http.delete(argDeleteOperation);
+  
+    result = EJSON.parse(response.body.text()); 
+    console.log("Cluster " + name + ": " + "was deleted");
+    
+    if (result.error) { 
+      return result;
+    }
+  })
+
+  return clusterNames.length + " clusters deleted"; 
+```
