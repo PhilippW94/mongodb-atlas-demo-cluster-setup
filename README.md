@@ -86,17 +86,19 @@ For the setup of the GraphQL Demo, follow the steps described in the POVs as par
 With the permissions defined in the last and final step everybody can create Atlas Clusters, but only the admins can delete them. Thus it is quintessential to have a reaper process in place to clean up the results of glorious _Cluster Creation Flow Demos_.
 
 For this the below Realm Function script is used. Follow the following steps to set it up:
-* Create a Realm Function called **reaperFunc**
+* Create a **Realm Function** called **reaperFunc**
 * The following variables need to be set by you manually:
   * **username**: Create an API Key with associated project role **Project Owner**. Copy the Public Key and insert it for the _username_ variable.
-  * **password**: Copy the Private Key. Create a Realm Value and store the Private Key. For the _password_ variable, add the Value you previously created. 
+  * **password**: Copy the Private Key. Create a Realm Value and store the Private Key _in plain text_. For the _password_ variable, copy and paste the name of Value you previously created. 
   * **projectID**: In MongoDB Atlas, go to your project settings and copy the Project ID.
+  * **doNotDelete**: This variable is set to include the name of your cluster that should not be deleted, i.e. the one you setup.
+* Create a **Realm Trigger**, executing the **reaperFunc** every 12 hours.
 
 ```js
 exports = async function() {
   // Get stored credentials...
   const username = "zxibcoef";
-  const password = context.values.get("AtlasPrivateKey");
+  const password = context.values.get("AtlasPrivateKeyValue");
   
   // Supply projectID and clusterNames...
   const projectID = 'xxxxxxxxxxxxxxxxxxxxx';
