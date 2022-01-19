@@ -166,10 +166,28 @@ Make use of the _Team_ feature on the project access level. A dedicated _Admin T
 
 ## ![9](https://github.com/PhilippW94/Kafka_POV/blob/main/images/9b.png) mPauser Setup
 [mPauser](https://docs.google.com/document/d/1J-BQMJpQVKWxAcVxo2lrWD-vgaeCkGrUyWUH_NdOr4k/edit#heading=h.oiwlvtfsenl5) will pause all of your clusters automatically. In order to prevent this for you demo cluster from happening, follow through the following steps:
-* Create an API Key. Add your current IP to the access list, as this is required by some/all internal MongoDB Atlas Orgs.
+* Create an API Key. Add your current IP to the access list, as this is required by some/all internal MongoDB Atlas Orgs. Then store all the relevant data in variables in your shell:
 * ```bash
   PUBLICKEY="iuhvguml"
   PRIVATEKEY="076c2533-1234-1234-b42e-1234567890"
   GROUPID="5ba020501234567889f692"
   CLUSTERNAME="DemoCluster2-DoNotDelete"
-  
+  ```
+* Change the Atlas Cluster configuration and add the required label:
+* ```bash
+  curl --user "${PUBLICKEY}:${PRIVATEKEY}" --digest \
+  --header "Content-Type: application/json" \
+  --include \
+  --request PATCH "https://cloud.mongodb.com/api/atlas/v1.0/groups/${GROUPID}/clusters/${CLUSTERNAME}?pretty=true"  \
+  --data '
+  {
+  "labels": [
+     {
+       "key": "pause-from",
+       "value": "pause-from"
+     }
+   ]
+    }
+  '
+  ```
+
