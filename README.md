@@ -21,6 +21,7 @@ The following steps need to be stepped through in order to set up the Demo Clust
 6. [GraphQL Demo Setup](#-graphql-demo-setup)
 7. [Reaper Setup](#-reaper-setup)
 8. [Final Step - Permissions Setup](#-permissions-setup)
+9. [mPauser Setup](#-mpauser-setup)
 
 
 The [Atlas Demo Discovery Playbook Cheatsheet](https://docs.google.com/document/d/1RZVWKsR6CjSKoByxyPiUxgaQ-opjNCSrYiRDCUwC23U/edit#heading=h.744mm6ty7947) provides a "manual" for a walk through the different Atlas Features and some relevant questions to ask. 
@@ -162,3 +163,13 @@ In order to avoid accidents and mishaps that might result in your hard work bein
 Make use of the _Team_ feature on the project access level. A dedicated _Admin Team_ with the _Project Owner_ role and an _Everyone_-Team with the _Project Data Access Admin_ and _Project Cluster Manager_ role will support the desired usage pattern. Members of the _Everyone_-Team will be able to create a new cluster and edit configurations of existing ones. At the same time, they will not be able to terminate an existing instance - which could possibly be the thoroughly set up instance by you. Make sure that no unaccounted for users with elevated rights at the organisation level exist, as this could lead to problems. The following shows an example of how the _Team_ configuration could look like:
 
 <img src="https://github.com/PhilippW94/mongodb-atlas-demo-cluster-setup/blob/main/media/Screenshot%202021-09-15%20at%2013.42.42.png?raw=true" width="600"> 
+
+## ![9](https://github.com/PhilippW94/Kafka_POV/blob/main/images/9b.png) mPauser Setup
+[mPauser](https://docs.google.com/document/d/1J-BQMJpQVKWxAcVxo2lrWD-vgaeCkGrUyWUH_NdOr4k/edit#heading=h.oiwlvtfsenl5) will pause all of your clusters automatically. In order to prevent this for you demo cluster from happening, follow through the following steps:
+* Create an API Key. Add your current IP to the access list, as this is required by some/all internal MongoDB Atlas Orgs.
+* ```bash
+  PUBLICKEY="iuhvguml"
+  PRIVATEKEY="076c2533-1234-1234-b42e-1234567890"
+  GROUPID="5ba020501234567889f692"
+  CLUSTERNAME="DemoCluster2-DoNotDelete"
+  
